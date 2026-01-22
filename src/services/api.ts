@@ -1,5 +1,5 @@
-// const API_BASE_URL = 'https://apiloantrix.seotube.in/api';
-const API_BASE_URL = 'http://localhost:5009/api';
+const API_BASE_URL = 'https://apiloantrix.seotube.in/api';
+// const API_BASE_URL = 'http://localhost:5009/api';
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('adminToken');
