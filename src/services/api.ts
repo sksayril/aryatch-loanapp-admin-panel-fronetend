@@ -1,4 +1,5 @@
-const API_BASE_URL = 'https://apiloantrix.seotube.in/api';
+// const API_BASE_URL = 'https://apiloantrix.seotube.in/api';
+const API_BASE_URL = 'http://localhost:5009/api';
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem('adminToken');
@@ -292,6 +293,39 @@ export const commodityPricesApi = {
     });
     const data = await response.json();
     if (!response.ok) throw new Error(data.message || 'Failed to delete commodity price');
+    return data;
+  },
+};
+
+export const applyNowApi = {
+  get: async () => {
+    const response = await fetch(`${API_BASE_URL}/admin/apply-now`, {
+      headers: getAuthHeaders(),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to fetch Apply Now settings');
+    return data;
+  },
+
+  create: async (settings: { isActive: boolean; description?: string }) => {
+    const response = await fetch(`${API_BASE_URL}/admin/apply-now`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(settings),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to create Apply Now settings');
+    return data;
+  },
+
+  update: async (updates: { isActive?: boolean; description?: string }) => {
+    const response = await fetch(`${API_BASE_URL}/admin/apply-now`, {
+      method: 'PUT',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(updates),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to update Apply Now settings');
     return data;
   },
 };

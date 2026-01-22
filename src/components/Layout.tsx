@@ -8,14 +8,15 @@ import {
   LogOut,
   User,
   Menu,
-  X
+  X,
+  MousePointerClick
 } from 'lucide-react';
 import { useState } from 'react';
 
 interface LayoutProps {
   children: ReactNode;
-  currentPage: 'dashboard' | 'categories' | 'loans' | 'commodity-prices';
-  onNavigate: (page: 'dashboard' | 'categories' | 'loans' | 'commodity-prices') => void;
+  currentPage: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now';
+  onNavigate: (page: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now') => void;
 }
 
 const Layout = ({ children, currentPage, onNavigate }: LayoutProps) => {
@@ -27,6 +28,7 @@ const Layout = ({ children, currentPage, onNavigate }: LayoutProps) => {
     { id: 'categories', label: 'Categories', icon: FolderTree },
     { id: 'loans', label: 'Loans', icon: Banknote },
     { id: 'commodity-prices', label: 'Commodity Prices', icon: TrendingUp },
+    { id: 'apply-now', label: 'Apply Now', icon: MousePointerClick },
   ];
 
   return (
