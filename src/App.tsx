@@ -7,9 +7,10 @@ import Categories from './pages/Categories';
 import Loans from './pages/Loans';
 import CommodityPrices from './pages/CommodityPrices';
 import ApplyNow from './pages/ApplyNow';
+import UsaApplyNow from './pages/UsaApplyNow';
 import Layout from './components/Layout';
 
-type Page = 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now';
+type Page = 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now' | 'usa-apply-now';
 
 function AppContent() {
   const { admin, loading } = useAuth();
@@ -39,6 +40,7 @@ function AppContent() {
       {currentPage === 'loans' && <Loans />}
       {currentPage === 'commodity-prices' && <CommodityPrices />}
       {currentPage === 'apply-now' && <ApplyNow />}
+      {currentPage === 'usa-apply-now' && <UsaApplyNow />}
     </Layout>
   );
 }

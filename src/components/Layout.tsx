@@ -9,14 +9,15 @@ import {
   User,
   Menu,
   X,
-  MousePointerClick
+  MousePointerClick,
+  Flag
 } from 'lucide-react';
 import { useState } from 'react';
 
 interface LayoutProps {
   children: ReactNode;
-  currentPage: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now';
-  onNavigate: (page: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now') => void;
+  currentPage: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now' | 'usa-apply-now';
+  onNavigate: (page: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now' | 'usa-apply-now') => void;
 }
 
 const Layout = ({ children, currentPage, onNavigate }: LayoutProps) => {
@@ -29,6 +30,7 @@ const Layout = ({ children, currentPage, onNavigate }: LayoutProps) => {
     { id: 'loans', label: 'Loans', icon: Banknote },
     { id: 'commodity-prices', label: 'Commodity Prices', icon: TrendingUp },
     { id: 'apply-now', label: 'Apply Now', icon: MousePointerClick },
+    { id: 'usa-apply-now', label: 'USA Apply Now', icon: Flag },
   ];
 
   return (
