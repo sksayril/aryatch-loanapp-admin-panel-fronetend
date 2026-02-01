@@ -8,9 +8,10 @@ import Loans from './pages/Loans';
 import CommodityPrices from './pages/CommodityPrices';
 import ApplyNow from './pages/ApplyNow';
 import UsaApplyNow from './pages/UsaApplyNow';
+import IndiaApplyNow from './pages/IndiaApplyNow';
 import Layout from './components/Layout';
 
-type Page = 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now' | 'usa-apply-now';
+type Page = 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now' | 'usa-apply-now' | 'india-apply-now';
 
 function AppContent() {
   const { admin, loading } = useAuth();
@@ -41,6 +42,7 @@ function AppContent() {
       {currentPage === 'commodity-prices' && <CommodityPrices />}
       {currentPage === 'apply-now' && <ApplyNow />}
       {currentPage === 'usa-apply-now' && <UsaApplyNow />}
+      {currentPage === 'india-apply-now' && <IndiaApplyNow />}
     </Layout>
   );
 }

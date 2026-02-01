@@ -362,3 +362,36 @@ export const usaApplyNowApi = {
     return data;
   },
 };
+
+export const indiaApplyNowApi = {
+  get: async () => {
+    const response = await fetch(`${API_BASE_URL}/admin/apply-now/india`, {
+      headers: getAuthHeaders(),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to fetch India Apply Now settings');
+    return data;
+  },
+
+  create: async (settings: { isActive: boolean; description?: string }) => {
+    const response = await fetch(`${API_BASE_URL}/admin/apply-now/india`, {
+      method: 'POST',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(settings),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to create India Apply Now settings');
+    return data;
+  },
+
+  update: async (updates: { isActive?: boolean; description?: string }) => {
+    const response = await fetch(`${API_BASE_URL}/admin/apply-now/india`, {
+      method: 'PUT',
+      headers: getAuthHeaders(),
+      body: JSON.stringify(updates),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to update India Apply Now settings');
+    return data;
+  },
+};

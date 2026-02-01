@@ -16,8 +16,8 @@ import { useState } from 'react';
 
 interface LayoutProps {
   children: ReactNode;
-  currentPage: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now' | 'usa-apply-now';
-  onNavigate: (page: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now' | 'usa-apply-now') => void;
+  currentPage: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now' | 'usa-apply-now' | 'india-apply-now';
+  onNavigate: (page: 'dashboard' | 'categories' | 'loans' | 'commodity-prices' | 'apply-now' | 'usa-apply-now' | 'india-apply-now') => void;
 }
 
 const Layout = ({ children, currentPage, onNavigate }: LayoutProps) => {
@@ -31,6 +31,7 @@ const Layout = ({ children, currentPage, onNavigate }: LayoutProps) => {
     { id: 'commodity-prices', label: 'Commodity Prices', icon: TrendingUp },
     { id: 'apply-now', label: 'Apply Now', icon: MousePointerClick },
     { id: 'usa-apply-now', label: 'USA Apply Now', icon: Flag },
+    { id: 'india-apply-now', label: 'India Apply Now', icon: Flag },
   ];
 
   return (
